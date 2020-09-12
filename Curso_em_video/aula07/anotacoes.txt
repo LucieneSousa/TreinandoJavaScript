@@ -1,0 +1,25 @@
+contas:
+
+5 + 2 = 7
+5 - 2 = 3
+5 * 2 = 10
+5 / 2 = 2.5
+5 % 2 = 1   (resto da divisão)
+5 ** 2 = 25  
+
+ordem de precedência
+
+()
+**
+* / %
++ -
+
+simplificação
+
+var n = 3
+n = n + 4   n += 4
+n = n - 5   n -= 5
+n = n * 4   n *= 4
+n = n / 2   n /= 2
+n = n ** 2  n **= 2
+n = n % 5   n %= 5
