@@ -1,0 +1,27 @@
+Relacionais
+
+5 > 2    -> true
+7 < 2    -> false
+8 >= 8   -> true
+9 <= 7   -> false
+5 == 5   -> true
+4 != 4   -> false
+
+Lógicos
+
+! negação
+&& conjunção
+|| disjunção
+
+
+Ternário
+
+teste ? true : false
+ex.: media>=7 ? "aprovado" : "reprovado"
+
+Precedência
+1) operadores aritmeticos
+2) operadores Relacionais
+3) operadores lógicos nessa ordem: ! , &&, ||
+
+
