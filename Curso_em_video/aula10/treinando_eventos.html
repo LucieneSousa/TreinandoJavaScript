@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Treinando Alguns Eventos</title>
+    <style>
+      div {
+        margin-top: 20px;
+      }
+
+      .arrastar {
+        color: rgb(131, 4, 250);
+        font: bold 10pt Arial;
+        border: 1px solid black;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        line-height: 65px;
+        margin-top: 10px;
+      }
+
+      .is-dragging {
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Treinando alguns eventos</h1>
+
+    <div>
+      <!--blur-->
+      <label>Evento blur</label>
+      <input type="text" name="blur" id="blur" onblur="ex01()" />
+    </div>
+
+    <div>
+      <!--reset-->
+      <form>
+        <label>Evento reset</label>
+        <input type="text" />
+        <button type="reset">Reset</button>
+      </form>
+    </div>
+
+    <div>
+      <!--keydown-->
+      <label>Evento keydown</label>
+      <input type="text" name="tecla" id="tecla" onkeydown="ex02()" />
+    </div>
+
+    <div>
+      <label>Evento drag e drop</label>
+      <div class="arrastar">
+        <p draggable="true">me arraste</p>
+      </div>
+      <div class="dropzone arrastar"></div>
+    </div>
+
+    <script>
+      //evento blur
+      function ex01() {
+        var a = document.querySelector('input#blur');
+        a.style.background = 'blue';
+      }
+
+      //evento keydown
+      function ex02() {
+        var tecla = document.getElementById('tecla');
+        tecla.style.background = 'purple';
+      }
+
+      //evento drag and drop
+      var arrastars = document.querySelectorAll('.arrastar');
+      var dropzones = document.querySelectorAll('.dropzone');
+
+      arrastars.forEach((arrastar) => {
+        arrastar.addEventListener('dragstart', dragstart);
+        arrastar.addEventListener('drag', drag);
+        arrastar.addEventListener('dragend', dragend);
+      });
+
+      function dragstart() {
+        this.classList.add('is-dragging');
+        // console.log('funcionou');
+      }
+
+      function drag() {
+        // console.log('funcionou drag');
+      }
+
+      function dragend() {
+        this.classList.remove('is-dragging');
+      }
+
+      dropzones.forEach((dropzone) => {
+        dropzone.addEventListener('dragenter', dragenter);
+        dropzone.addEventListener('dragover', dragover);
+        dropzone.addEventListener('dragleave', dragleave);
+        dropzone.addEventListener('drop', drop);
+      });
+
+      function dragenter() {
+        console.log('funcionou dragenter');
+      }
+
+      /*
+      function dragover() {
+        var cardSendoArrastado = document.getElementsByClassName('is-dragging');
+
+        // this.appendChild(cardSendoArrastado);
+
+        var z = document.createElement('div');
+        z.innerText = cardSendoArrastado;
+        this.appendChild(z);
+        console.log('z', z);
+
+        //console.log('cardSendoArrastado', cardSendoArrastado);
+      }
+
+      function dragleave() {
+        console.log('funcionou dragleave');
+      }
+
+      function drop() {
+        console.log('funcionou drop');
+      }
+
+      */
+    </script>
+  </body>
+</html>
